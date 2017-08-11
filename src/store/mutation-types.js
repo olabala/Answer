@@ -1,0 +1,10 @@
+export const ADD_QUES = 'ADD_QUES'
+export const GET_QUES_AND_COMMENTS = 'GET_QUES_AND_COMMENTS'
+export const ADD_COMMENT = 'ADD_COMMENT'
+export const GET_QUESTIONSLIST = 'GET_QUESTIONSLIST'
+export const GET_COMMENTSLIST = 'GET_COMMENTSLIST'
+
+export const SEE_MORE = 'SEE_MORE'
+
+// 格式化time
+export const FORMAT_TIME = 'FORMAT_TIME'

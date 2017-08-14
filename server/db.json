@@ -27,6 +27,13 @@
       "author": "杨炎",
       "time": 1501109086408,
       "content": "问题说明问题说明问题说明问题说明问题说明。问题说明问题说明。问题说明问题说明问题说明问题说明问题说明，问题说明问题说明问题说明。问题说明问题说明问题说明"
+    },
+    {
+      "id": 10004,
+      "title": "这是新加载的文章名",
+      "author": "杨炎",
+      "time": 1501109087408,
+      "content": "问题说明问题说明问题说明问题说明问题说明。问题说明问题说明。问题说明问题说明问题说明问题说明问题说明，问题说明问题说明问题说明。问题说明问题说明问题说明"
     }
   ],
   "commentsList": [
@@ -34,7 +41,7 @@
       "id": 10001,
       "ques_id": 10003,
       "agree": 101,
-      "disagree": 12,
+      "disagree": 18,
       "author": "火火",
       "time": 1501319086408,
       "content": "这是回答这是回答这是回答这是回答这是回答"
@@ -43,7 +50,7 @@
       "id": 10002,
       "ques_id": 10003,
       "agree": 101,
-      "disagree": 12,
+      "disagree": 13,
       "author": "火火",
       "time": 1501319086408,
       "content": "这是回答这是回答这是回答这是回答这是回答"
@@ -98,8 +105,8 @@
       "author": "火火",
       "time": 1502458452361,
       "content": "111222333",
-      "agree": 0,
-      "disagree": 0,
+      "agree": 6,
+      "disagree": 4,
       "id": 10010
     },
     {
@@ -108,7 +115,7 @@
       "time": 1502458492669,
       "content": "4543534",
       "agree": 0,
-      "disagree": 0,
+      "disagree": 1,
       "id": 10011
     },
     {
@@ -116,8 +123,8 @@
       "author": "火火",
       "time": 1502458590722,
       "content": "3323",
-      "agree": 0,
-      "disagree": 0,
+      "agree": 3,
+      "disagree": 1,
       "id": 10012
     },
     {
@@ -130,7 +137,7 @@
       "id": 10013
     },
     {
-      "ques_id": "10000",
+      "ques_id": 10000,
       "author": "火火",
       "time": 1502458820426,
       "content": "奉公守法",
@@ -139,7 +146,7 @@
       "id": 10014
     },
     {
-      "ques_id": "10000",
+      "ques_id": 10000,
       "author": "火火",
       "time": 1502459161575,
       "content": "奉公守法",
@@ -148,7 +155,7 @@
       "id": 10015
     },
     {
-      "ques_id": "10000",
+      "ques_id": 10000,
       "author": "火火",
       "time": 1502459215243,
       "content": "dafasfas ",
@@ -157,11 +164,11 @@
       "id": 10016
     },
     {
-      "ques_id": "10000",
+      "ques_id": 10000,
       "author": "火火",
       "time": 1502459476246,
       "content": "dadada",
-      "agree": 0,
+      "agree": 5,
       "disagree": 0,
       "id": 10017
     },
@@ -170,17 +177,17 @@
       "author": "火火",
       "time": 1502459506831,
       "content": "adada ",
-      "agree": 0,
-      "disagree": 0,
+      "agree": 5,
+      "disagree": 2,
       "id": 10018
     },
     {
-      "ques_id": "10000",
+      "ques_id": 10000,
       "author": "火火",
       "time": 1502460224841,
       "content": "dada",
       "agree": 0,
-      "disagree": 0,
+      "disagree": 2,
       "id": 10019
     },
     {
@@ -188,9 +195,36 @@
       "author": "火火",
       "time": 1502460245920,
       "content": "adadada",
+      "agree": 1,
+      "disagree": 1,
+      "id": 10020
+    },
+    {
+      "ques_id": 10001,
+      "author": "火火",
+      "time": 1502682022146,
+      "content": "120",
       "agree": 0,
       "disagree": 0,
-      "id": 10020
+      "id": 10021
+    },
+    {
+      "ques_id": 10002,
+      "author": "火火",
+      "time": 1502684409189,
+      "content": "asfsfsafsa",
+      "agree": 0,
+      "disagree": 0,
+      "id": 10022
+    },
+    {
+      "ques_id": 10002,
+      "author": "火火",
+      "time": 1502684420651,
+      "content": "gsdgsdgsdgd",
+      "agree": 0,
+      "disagree": 0,
+      "id": 10023
     }
   ]
 }

@@ -35,7 +35,7 @@
         </el-row>
       </el-row>
       <el-row id="add-more">
-        <a class="add-more_text">加载更多...</a>
+        <a class="add-more_text" v-if="showMoreQues" @click="loadMore()">加载更多...</a>
       </el-row>
     </el-row>
   </div>
@@ -63,11 +63,16 @@ export default {
     ]),
     tabChange (index) {
       this.indexs = index
+    },
+    loadMore () {
+      var vm = this
+      this.$store.dispatch('loadMoreQues', vm)
     }
   },
   computed: {
     ...mapGetters([
-      'questionsList'
+      'questionsList',
+      'showMoreQues'
     ])
   }
 }

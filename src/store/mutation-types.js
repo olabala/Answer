@@ -4,7 +4,9 @@ export const ADD_COMMENT = 'ADD_COMMENT'
 export const GET_QUESTIONSLIST = 'GET_QUESTIONSLIST'
 export const GET_COMMENTSLIST = 'GET_COMMENTSLIST'
 
-export const SEE_MORE = 'SEE_MORE'
+export const LOAD_MORE_ANSWER = 'LOAD_MORE_ANSWER'
+export const COMMENT_COUNT = 'COMMENT_COUNT'
+export const LOAD_MORE_QUESTION = 'LOAD_MORE_QUESTION'
 
 // 格式化time
 export const FORMAT_TIME = 'FORMAT_TIME'

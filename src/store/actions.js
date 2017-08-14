@@ -17,8 +17,12 @@ export default {
       console.log(err)
     })
   },
-  getQuestionslist ({ commit }, ques) {
+  getQuestionslist ({ commit, state }, ques) {
     Vue.http.get('http://localhost:3000/questionsList', {
+      params: {
+        _start: state.quesStart,
+        _limit: state.limit
+      }
     }).then(function (response) {
       let quesList = response.data
       commit(types.GET_QUESTIONSLIST, quesList)
@@ -26,7 +30,19 @@ export default {
       console.log(response)
     })
   },
-  getQuesAndComments ({ commit }, id) {
+  commentCount ({ commit, state }, id) {
+    Vue.http.get('http://localhost:3000/commentsList', {
+      params: {
+        ques_id: id
+      }
+    }).then(res => {
+      var count = res.data.length
+      commit(types.COMMENT_COUNT, count)
+    }).catch(err => {
+      console.log(err)
+    })
+  },
+  getQuesAndComments ({ commit, state }, id) {
     let payload = {}
     let comments = []
     Vue.http.get('http://localhost:3000/questionsList/' + id, {
@@ -34,7 +50,9 @@ export default {
       payload.ques = res.data
       return Vue.http.get('http://localhost:3000/commentsList', {
         params: {
-          ques_id: id
+          ques_id: id,
+          _start: 0,
+          _limit: state.limit
         }
       })
     }).then(res => {
@@ -58,8 +76,35 @@ export default {
       console.log(err)
     })
   },
-  seeMore ({ commit }, more) {
-    commit(types.SEE_MORE, more)
+  loadMoreAnswer ({ commit, state }, payload) {
+    state.commentStart += state.limit
+    Vue.http.get('http://localhost:3000/commentsList', {
+      params: {
+        ques_id: payload.quesId,
+        _start: state.commentStart,
+        _limit: state.limit
+      }
+    }).then((res) => {
+      var comments = res.data
+      var vm = payload.vm
+      commit(types.LOAD_MORE_ANSWER, {comments, vm})
+    }).catch((err) => {
+      console.log(err)
+    })
+  },
+  loadMoreQues ({ commit, state }, vm) {
+    state.quesStart += state.limit
+    Vue.http.get('http://localhost:3000/questionsList', {
+      params: {
+        _start: state.quesStart,
+        _limit: state.limit
+      }
+    }).then((res) => {
+      var questions = res.data
+      commit(types.LOAD_MORE_QUESTION, {questions, vm})
+    }).catch((err) => {
+      console.log(err)
+    })
   },
   formatTime ({commit, state}) {
     let wbs = state.wbs

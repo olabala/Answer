@@ -26,7 +26,7 @@
               <span class="ques-time">{{ques.time}}</span>
             </el-col>
             <el-col :span="8" class="text-right">
-              <span>{{commentCount}}个回答 </span>
+              <span>{{commentsCount}}个回答 </span>
             </el-col>
           </el-row>
         </el-row>
@@ -57,22 +57,21 @@
         </el-row>
       </el-row>
       <el-row id="add-more">
-        <a class="add-more_text">加载更多...</a>
+        <a class="add-more_text" v-if='showMoreAnswer' @click ="loadMore()">加载更多...</a>
       </el-row>
     </el-row>
     <el-row id="popup-answer" v-if="showAnswer">
-      <i class="icon-cancel" @click = cancelAnswer()></i>
+      <i class="icon-cancel" @click = "cancelAnswer()"></i>
       <form id="answer-content">
         <el-row>
           <span>我的回答（200字以内）</span>
         </el-row>
         <el-row class="answer-textarea">
-
           <p class="form-alert">回答不能为空！</p>
           <textarea placeholder="请输入回答" v-model="answerContent"></textarea>
         </el-row>
         <el-row>
-          <el-button class="submit-btn new-btn" @click = submitAnswer()>提交回答</el-button>
+          <el-button class="submit-btn new-btn" @click ="submitAnswer()">提交回答</el-button>
         </el-row>
       </form>
     </el-row>
@@ -80,7 +79,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'quesDetail',
   data () {
@@ -93,11 +92,15 @@ export default {
   },
   created () {
     this.$store.dispatch('getQuesAndComments', this.id)
+    this.commentCount(this.id)
   },
   computed: {
     ...mapGetters([
       'ques',
-      'comments'
+      'comments',
+      'showMoreAnswer',
+      'commentStart',
+      'commentsCount'
     ]),
     commentsList () {
       let commentList = []
@@ -113,12 +116,12 @@ export default {
         }
       }
       return commentList
-    },
-    commentCount () {
-      return this.comments.length
     }
   },
   methods: {
+    ...mapActions([
+      'commentCount'
+    ]),
     answer () {
       this.showAnswer = true
       this.showButton = false
@@ -160,6 +163,12 @@ export default {
       var answer = this.comments[index]
       answer.disagree += 1
       this.$store.dispatch('addDisagree', answer)
+    },
+    loadMore () {
+      var payload = {}
+      payload.quesId = this.id
+      payload.vm = this
+      this.$store.dispatch('loadMoreAnswer', payload)
     }
   }
 }
